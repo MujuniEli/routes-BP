@@ -3,7 +3,7 @@
 const Nav = () => {
   return (
     <nav className="nav">
-        <p>Logo goes here</p>
+        <h2>#VANLIFE</h2>
         <div className="nav-list">
             <h3>About</h3>
             <h3>Vans</h3>
