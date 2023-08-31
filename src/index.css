@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  
+  width: 800px;
 }
 
 h1 {
@@ -31,4 +31,15 @@ button:focus-visible {
 
 .nav {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+}
+
+.nav-list {
+            display: flex;
+            justify-content: space-around;
+}
+
+.nav-list > h3 {
+                  margin-right: 2rem;
 }
