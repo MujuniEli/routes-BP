@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
-import About from './components/About.jsx'
+import About from './pages/About.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
