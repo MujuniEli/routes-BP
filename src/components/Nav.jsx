@@ -2,10 +2,12 @@
 
 const Nav = () => {
   return (
-    <nav>
-        <img src="../assets/#VANLIFE.png" />
-        <h3>About</h3>
-        <h3>Vans</h3>
+    <nav className="nav">
+        <p>Logo goes here</p>
+        <div className="nav-list">
+            <h3>About</h3>
+            <h3>Vans</h3>
+        </div>
     </nav>
   )
 }
