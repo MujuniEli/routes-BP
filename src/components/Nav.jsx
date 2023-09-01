@@ -1,3 +1,5 @@
+// import { Link } from "react-router-dom"
+// import About from "../pages/About"
 
 
 const Nav = () => {
@@ -5,6 +7,7 @@ const Nav = () => {
     <nav className="nav">
         <h2>#VANLIFE</h2>
         <div className="nav-list">
+            
             <h3>About</h3>
             <h3>Vans</h3>
         </div>
