@@ -1,5 +1,7 @@
-import bgImg from "../assets/images/image 54.png"
-import { Link } from "react-router-dom"
+import bgImg from "../assets/images/image 54.png";
+import { Link } from "react-router-dom";
+
+
 const About = () => {
   return (
     <div>
