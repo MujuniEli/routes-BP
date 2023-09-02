@@ -1,15 +1,12 @@
-// import { Link } from "react-router-dom"
-// import About from "../pages/About"
-
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <nav className="nav">
-        <h2>#VANLIFE</h2>
+        <Link to="/" className="site-logo">#Vanlife</Link>
         <div className="nav-list">
-            
-            <h3>About</h3>
-            <h3>Vans</h3>
+            <Link to="/about">About</Link>
+            <Link to="/vans">Vans</Link>
         </div>
     </nav>
   )
