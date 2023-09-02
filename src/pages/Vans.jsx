@@ -50,7 +50,7 @@ const Vans = () => {
     ))
 
   return (
-    <div>{vanElements}</div>
+    <div>{vanElements }</div>
   )
 }
 
