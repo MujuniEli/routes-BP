@@ -50,7 +50,12 @@ const Vans = () => {
     ))
 
   return (
-    <div>{vanElements }</div>
+                <div className="van-list-container">
+                    <h1>Explore our van options</h1>
+                    <div className="van-list">
+                        {vanElements }
+                    </div>
+                </div>
   )
 }
 
