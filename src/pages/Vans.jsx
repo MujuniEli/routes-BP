@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { createServer, Model } from "miragejs";
+import { Link } from "react-router-dom";
 
 createServer({
     models: {
@@ -19,6 +20,7 @@ createServer({
         this.namespace = "api"
         this.logging = false
 
+        // eslint-disable-next-line no-unused-vars
         this.get("/vans", (schema, request) => {
             return schema.vans.all()
         })
@@ -40,12 +42,14 @@ const Vans = () => {
 
     const vanElements = vans.map(van => (
         <div key={van.id} className="van-tile">
+            <Link to={`/vans/${van.id}`}>
             <img src={van.imageUrl} alt="van image" />
             <div className="van-info">
                 <h3>{van.name}</h3>
                 <p>${van.price}<span>/day</span></p>
                 <i className={`van-type ${van.type} selected`}>{van.type}</i>
             </div>
+            </Link>
         </div>
     ))
 
