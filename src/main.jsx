@@ -22,14 +22,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/about' element={<About />}/>
           <Route path='/vans' element={<Vans />}/>
           <Route path='/vans/:id' element={<VanDetails />}/>
-          {/* <Route path='/host/reviews' element={<Reviews />}/>
-          <Route path='/host/income' element={<Income />}/> */}
-          <Route path='/host' element={<Dashboard />}>
-            <Route path='/host/reviews' element={<Reviews />}/>
-            <Route path='/host/income' element={<Income />}/>
-          </Route>
-          
-    </Route>
+              <Route path='/host' element={<Dashboard />}>
+                <Route path='/host/reviews' element={<Reviews />}/>
+                <Route path='/host/income' element={<Income />}/>
+              </Route>
+      </Route>
     </Routes>
   </React.StrictMode>
   </BrowserRouter>,
