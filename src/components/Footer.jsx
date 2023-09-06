@@ -3,7 +3,7 @@
 const Footer = () => {
   return (
             <div>
-                Footer
+                <footer>&#169; 2022 #VANLIFE</footer>
             </div>
   )
 }
