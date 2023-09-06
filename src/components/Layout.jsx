@@ -4,9 +4,11 @@ import Footer from "./Footer.jsx";
 
 const Layout = () => {
             return (
-                <div className="layout">
+                <div className="site-wrapper">
                     <Nav />
-                    <Outlet />
+                    <main>
+                        <Outlet />
+                    </main>
                     <Footer />
                 </div>)
 };
