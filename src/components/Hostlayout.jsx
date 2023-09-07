@@ -1,12 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Hostlayout = () => {
   return (
              <div className="host-nav">
                 
-                <Link to="/host">Dashboard</Link>
-                <Link to="/host/income">Income</Link>
-                <Link to="/host/reviews">Reviews</Link>
+                <NavLink to="/host">Dashboard</NavLink>
+                <NavLink to="/host/income">Income</NavLink>
+                <NavLink to="/host/reviews">Reviews</NavLink>
                 <Outlet />
              </div>
   )

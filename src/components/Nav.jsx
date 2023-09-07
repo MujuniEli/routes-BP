@@ -6,8 +6,8 @@ const Nav = () => {
         <Link to="/" className="site-logo">#Vanlife</Link>
         <div className="nav-list">
             <NavLink to="/about" className={({isActive}) => isActive ? "active-link" : ""}>About</NavLink>
-            <NavLink to="/vans">Vans</NavLink>
-            <NavLink to="/host">Host</NavLink>
+            <NavLink to="/vans" className={({isActive}) => isActive ? "active-link" : ""}>Vans</NavLink>
+            <NavLink to="/host" className={({isActive}) => isActive ? "active-link" : ""}>Host</NavLink>
         </div>
     </nav>
   )
