@@ -55,6 +55,12 @@ nav .site-logo {
             padding: 5px 20px;
 }
 
+a.active-link {
+            color: #161616;
+            text-decoration: underline;
+            font-weight: bold;
+}
+
 main {
   margin-bottom: 84px;
 }
@@ -221,6 +227,7 @@ footer {
   color: #FFEAD0;
   height: 74px;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   margin-top: auto;
