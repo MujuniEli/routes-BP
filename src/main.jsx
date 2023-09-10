@@ -13,6 +13,7 @@ import Income from './pages/Host/Income'
 import Dashboard from './pages/Host/Dashboard'
 import Hostlayout from './components/Hostlayout'
 import HostVans from './pages/Host/HostVans'
+import HostVanDetails from './pages/Host/HostVanDetails'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path='reviews' element={<Reviews />}/>
                 <Route path='income' element={<Income />}/>
                 <Route path='vans' element={<HostVans />}/>
+                <Route path='vans/:id' element={<HostVanDetails />}/>
               </Route>
       </Route>
     </Routes>
