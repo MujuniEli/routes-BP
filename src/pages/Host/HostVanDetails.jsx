@@ -11,7 +11,7 @@ const HostVanDetails = () => {
     fetch(`/api/host/vans/${id}`)
     .then((res) => res.json())
     .then(data => setCurrentVan(data.vans))
-  }, []);
+  }, );
 
   if (!currentVan) {
     return <div>Loading...</div>;
@@ -19,7 +19,7 @@ const HostVanDetails = () => {
 
   return (
           <section>
-            <Link to=".." classname="link-button">
+            <Link to=".." classname="link-button" relative="path">
               &larr; <span>Back to all Vans</span>
             </Link>
             <div className="host-van-detail-layout-container">
