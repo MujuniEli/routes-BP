@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
@@ -18,12 +18,22 @@ const HostVanDetails = () => {
   }
 
   return (
-            <div>
-              <img src={currentVan.imageUrl} width={150} alt={currentVan.name} />
-              <h2>{currentVan.name}</h2>
-              <p>{currentVan.price}</p> 
-              <p>{currentVan.type}</p>
+          <section>
+            <Link to=".." classname="link-button">
+              &larr; <span>Back to all Vans</span>
+            </Link>
+            <div className="host-van-detail-layout-container">
+                <div className="host-van-detail">
+                  <img src={currentVan.imageUrl} alt={currentVan.name} />
+                    <div className="host-van-detail-info-text">
+                          <i className={`van-type van-type-${currentVan.type}`}>{currentVan.type}</i>
+                          <h3>{currentVan.name}</h3>
+                          <h4>{currentVan.price}/day</h4> 
+                          
+                    </div>
+                </div>
               </div>
+          </section>   
   )
 }
 
