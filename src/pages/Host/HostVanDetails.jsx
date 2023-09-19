@@ -1,4 +1,4 @@
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
@@ -17,6 +17,12 @@ const HostVanDetails = () => {
     return <div>Loading...</div>;
   }
 
+  const activeStyle = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  }
+
   return (
           <section>
             <Link to=".." classname="link-button" relative="path">
@@ -32,8 +38,15 @@ const HostVanDetails = () => {
                           
                     </div>
                 </div>
+                <nav className="host-van-detail-nav">
+                  <NavLink to="." end style={({ isActive }) => isActive ? activeStyle : null } >Details</NavLink>
+                  <NavLink to="pricing" style={({ isActive }) => isActive ? activeStyle : null } >Pricing</NavLink>
+                  <NavLink to="photos" style={({ isActive }) => isActive ? activeStyle : null } >Photos</NavLink>
+                </nav>
+
+                <Outlet />
               </div>
-              <Outlet />
+              
           </section>   
   )
 }
