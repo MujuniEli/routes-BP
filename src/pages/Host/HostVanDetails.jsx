@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
@@ -33,6 +33,7 @@ const HostVanDetails = () => {
                     </div>
                 </div>
               </div>
+              <Outlet />
           </section>   
   )
 }
