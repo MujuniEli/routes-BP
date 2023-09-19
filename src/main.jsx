@@ -14,6 +14,8 @@ import Dashboard from './pages/Host/Dashboard'
 import Hostlayout from './components/Hostlayout'
 import HostVans from './pages/Host/HostVans'
 import HostVanDetails from './pages/Host/HostVanDetails'
+import HostVanPhotos from './pages/Host/HostVanPhotos'
+import HostVanPricing from './pages/Host/HostVanPricing'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -31,7 +33,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path='reviews' element={<Reviews />}/>
                 <Route path='income' element={<Income />}/>
                 <Route path='vans' element={<HostVans />}/>
-                <Route path='vans/:id' element={<HostVanDetails />}/>
+                <Route path='vans/:id' element={<HostVanDetails />}> 
+                  <Route path='pricing' element={<HostVanPricing />}/>
+                  <Route path='photos' element={<HostVanPhotos />}/>
+                </Route>
               </Route>
       </Route>
     </Routes>
