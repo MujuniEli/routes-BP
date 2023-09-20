@@ -44,7 +44,7 @@ const HostVanDetails = () => {
                   <NavLink to="photos" style={({ isActive }) => isActive ? activeStyle : null } >Photos</NavLink>
                 </nav>
 
-                <Outlet />
+                <Outlet context={{currentVan}}/>
               </div>
               
           </section>   
