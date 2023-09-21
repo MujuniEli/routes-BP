@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { createServer, Model } from "miragejs";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 createServer({
     models: {
@@ -55,6 +55,10 @@ const Vans = () => {
                 .then(res => res.json())
                 .then(data => setVans(data.vans))
     }, [])
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const typeFilter = searchParams.get("type")
+    console.log(typeFilter)
 
     const vanElements = vans.map(van => (
         <div key={van.id} className="van-tile">
