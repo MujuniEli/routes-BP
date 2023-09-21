@@ -58,9 +58,10 @@ const Vans = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type")
-    console.log(typeFilter)
 
-    const vanElements = vans.map(van => (
+    const vansToDisplay = typeFilter ? vans.filter(van => van.type.toLowerCase() === typeFilter) : vans
+
+    const vanElements = vansToDisplay.map(van => (
         <div key={van.id} className="van-tile">
             <Link to={`/vans/${van.id}`}>
             <img src={van.imageUrl} alt="van image" />
