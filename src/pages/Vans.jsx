@@ -77,6 +77,7 @@ const Vans = () => {
   return (
                 <div className="van-list-container">
                     <h1>Explore our van options</h1>
+                    <Link to="?type=simple" className="van-type simple">Simple</Link>
                     <div className="van-list">
                         {vanElements }
                     </div>
