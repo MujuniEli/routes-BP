@@ -13,11 +13,12 @@ const VanDetails = () => {
     }, [params.id])
 
     const search = location.state && location.state.search || ""
+    const type = location.state && location.state.type || "all"
 
   return (
             <div className="van-detail-container">
                 <Link to={`..${search}`} classname="back-button" relative="path">
-                    &larr; <span>Back to all Vans</span>
+                    &larr; <span>Back to {type} Vans</span>
                 </Link>
                 {van ? (
                     <div className="van-detail">
