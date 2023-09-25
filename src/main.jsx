@@ -17,6 +17,7 @@ import HostVanDetails from './pages/Host/HostVanDetails'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
+import NotFound from './pages/NotFound'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -40,6 +41,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   <Route path='photos' element={<HostVanPhotos />}/>
                 </Route>
               </Route>
+              <Route path='*' element={<NotFound />}/>
       </Route>
     </Routes>
   </React.StrictMode>
