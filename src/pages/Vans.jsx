@@ -2,6 +2,10 @@ import { useEffect, useState } from "react"
 import { createServer, Model } from "miragejs";
 import { Link, useSearchParams } from "react-router-dom";
 
+export const Loader = () => {
+    return "Van data goes here"
+}
+
 createServer({
     models: {
         vans: Model,
