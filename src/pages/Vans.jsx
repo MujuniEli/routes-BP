@@ -49,11 +49,14 @@ createServer({
 })
 
 const Vans = () => {
+    const [loading, setLoading] = useState(false)
     const [vans, setVans] = useState([])
     useEffect(() => {
+        setLoading(true)
         fetch("/api/vans")
                 .then(res => res.json())
                 .then(data => setVans(data.vans))
+                .finally(() => setLoading(false))
     }, [])
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -73,6 +76,8 @@ const Vans = () => {
             </Link>
         </div>
     ))
+
+    if (loading) return <h2>Loading...</h2>
 
   return (
                 <div className="van-list-container">
