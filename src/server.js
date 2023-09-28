@@ -1,4 +1,4 @@
-import { createServer, Model } from "miragejs";
+import { createServer, Model, Response } from "miragejs";
 
 
 createServer({
@@ -27,7 +27,8 @@ createServer({
 
         // eslint-disable-next-line no-unused-vars
         this.get("/vans", (schema, request) => {
-            return schema.vans.all()
+            return new Response(400, {}, { message: "Failed to fetch vans" })
+            // return schema.vans.all()
         })
         
         this.get("/vans/:id", (schema, request) => {

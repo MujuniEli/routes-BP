@@ -13,6 +13,7 @@ import Vans, { Loader } from './pages/Vans.jsx'
 import NotFound from './pages/NotFound'
 import VanDetails from './pages/VanDetails'
 import Layout from './components/Layout'
+import Error from './components/Error'
 import Reviews from './pages/Host/Reviews'
 import Income from './pages/Host/Income'
 import Dashboard from './pages/Host/Dashboard'
@@ -31,7 +32,11 @@ const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>
   <Route index element={<Home />}/>
   <Route path='about' element={<About />}/>
-  <Route path='vans' element={<Vans />} loader={Loader}/>
+  <Route path='vans' 
+  element={<Vans />} 
+  loader={Loader}
+  errorElement={<Error />}
+  />
   <Route path='vans/:id' element={<VanDetails />}/>
   
       <Route path='host' element={<Hostlayout />}>
