@@ -10,6 +10,7 @@ import './index.css'
 import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
 import Vans, { Loader } from './pages/Vans.jsx'
+import Login from './pages/Login.jsx'
 import NotFound from './pages/NotFound'
 import VanDetails from './pages/VanDetails'
 import Layout from './components/Layout'
@@ -37,6 +38,7 @@ const router = createBrowserRouter(createRoutesFromElements(
   loader={Loader}
   errorElement={<Error />}
   />
+  <Route path='login' element={<Login />}/>
   <Route path='vans/:id' element={<VanDetails />}/>
   
       <Route path='host' element={<Hostlayout />}>
