@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../server"
 
 export const Loader = () => {
-    return "Van data goes here"
+    return getVans()
 }
 
 
 const Vans = () => {
-    const [loading, setLoading] = useState(false)
-    const [vans, setVans] = useState([])
-    useEffect(() => {
-        setLoading(true)
-        fetch("/api/vans")
-                .then(res => res.json())
-                .then(data => setVans(data.vans))
-                .finally(() => setLoading(false))
-    }, [])
+    
+    const vans = useLoaderData()
+    
 
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type")
@@ -35,7 +30,7 @@ const Vans = () => {
         </div>
     ))
 
-    if (loading) return <h2>Loading...</h2>
+    
 
   return (
                 <div className="van-list-container">
