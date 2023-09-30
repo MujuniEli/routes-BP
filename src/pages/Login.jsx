@@ -31,7 +31,8 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                         value={loginFormData.password}
-                     />   
+                     />  
+                     <button>Log in</button> 
                 </form>
             </div>
   )
