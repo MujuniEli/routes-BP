@@ -1,10 +1,12 @@
 // import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../server";
+import requireAuth from "../../utils";
 
 
-export const Loader = () => {
-  return getHostVans()
+export async function Loader() {
+    await requireAuth()
+    return getHostVans()
 }
 
 
