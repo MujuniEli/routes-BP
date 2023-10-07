@@ -24,7 +24,7 @@ import HostVanDetails, {Loader as hostVanDetailLoader} from './pages/Host/HostVa
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
-import requireAuth  from './utils'
+import {requireAuth}  from './utils'
 
 
 
