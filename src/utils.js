@@ -4,7 +4,7 @@ import { redirect } from "react-router-dom";
     const isLoggedIn = false
 
     if(!isLoggedIn) {
-        throw redirect("/login")
+        throw redirect("/login?message=You must log in first")
     }
 }
 

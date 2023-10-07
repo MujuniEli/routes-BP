@@ -10,7 +10,7 @@ import './index.css'
 import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
 import Vans, { Loader as vansLoader } from './pages/Vans.jsx'
-import Login from './pages/Login.jsx'
+import Login, { Loader as logInLoader} from './pages/Login.jsx'
 import NotFound from './pages/NotFound'
 import VanDetails, { Loader as vanDetailLoader } from './pages/VanDetails'
 import Layout from './components/Layout'
@@ -18,13 +18,13 @@ import Error from './components/Error'
 import Reviews from './pages/Host/Reviews'
 import Income from './pages/Host/Income'
 import Dashboard from './pages/Host/Dashboard'
-import Hostlayout from './components/Hostlayout'
-import HostVans, { Loader as hostVanLoader} from './pages/Host/HostVans'
-import HostVanDetails, {Loader as hostVanDetailsLoader} from './pages/Host/HostVanDetails'
+import HostLayout from './components/Hostlayout'
+import HostVans, { Loader as hostVansLoader} from './pages/Host/HostVans'
+import HostVanDetails, {Loader as hostVanDetailLoader} from './pages/Host/HostVanDetails'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
-import  requireAuth  from './utils'
+import requireAuth  from './utils'
 
 
 
@@ -39,52 +39,68 @@ const router = createBrowserRouter(createRoutesFromElements(
   loader={vansLoader}
   errorElement={<Error />}
   />
-  <Route path='login' element={<Login />}/>
+  <Route 
+  path='login' 
+  element={<Login />}
+  loader={logInLoader}
+  />
   <Route path='vans/:id' loader={vanDetailLoader} element={<VanDetails />}/>
   
-      <Route path='host' element={<Hostlayout />}>
-        <Route 
-          index 
-          element={<Dashboard />}
-          loader={async () => await requireAuth()}
-        />
-        <Route 
-          path='reviews' 
-          element={<Reviews/>}
-          loader={ async () => await requireAuth()}
-        />
-        <Route 
-        path='income' 
+      <Route path="host" element={<HostLayout />}>
+      <Route
+        index
+        element={<Dashboard />}
+        loader={async () => {
+          return await requireAuth()
+        }}
+      />
+      <Route
+        path="income"
         element={<Income />}
-        loader={ async () => await requireAuth()}
-        />
-        <Route 
-        path='vans' 
+        loader={async () => {
+          return null
+        }}
+      />
+      <Route
+        path="reviews"
+        element={<Reviews />}
+        loader={async () => {
+          return null
+        }}
+      />
+      <Route
+        path="vans"
         element={<HostVans />}
-        loader={hostVanLoader}
-        />
-        <Route 
-        path='vans/:id' 
+        loader={hostVansLoader}
+      />
+      <Route
+        path="vans/:id"
         element={<HostVanDetails />}
-        loader={hostVanDetailsLoader}
-        >
-          <Route 
-          index 
+        loader={hostVanDetailLoader}
+      >
+        <Route
+          index
           element={<HostVanInfo />}
-          loader={ async () => await requireAuth()}
-          /> 
-          <Route 
-          path='pricing' 
+          loader={async () => {
+            return null
+          }}
+        />
+        <Route
+          path="pricing"
           element={<HostVanPricing />}
-          loader={ async () => await requireAuth()}
-          />
-          <Route 
-          path='photos' 
-          element={<HostVanPhotos/>}
-          loader={ async () => await requireAuth()}
-          />
-        </Route>
+          loader={async () => {
+            return null
+          }}
+        />
+        <Route
+          path="photos"
+          element={<HostVanPhotos />}
+          loader={async () => {
+            return null
+          }}
+        />
       </Route>
+    </Route>
       <Route path='*' element={<NotFound />}/>
 </Route>
 
@@ -98,5 +114,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <RouterProvider router={router} />
     
   </React.StrictMode>
-  ,
+  
 )
