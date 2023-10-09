@@ -20,11 +20,11 @@ import Income from './pages/Host/Income'
 import Dashboard from './pages/Host/Dashboard'
 import HostLayout from './components/Hostlayout'
 import HostVans, { Loader as hostVansLoader} from './pages/Host/HostVans'
-import HostVanDetails, {Loader as hostVanDetailLoader} from './pages/Host/HostVanDetails'
+import HostVanDetails, { Loader as hostVanDetailLoader } from './pages/Host/HostVanDetails'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
-import {requireAuth}  from './utils'
+import { requireAuth }  from './utils'
 
 
 
