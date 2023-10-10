@@ -4,6 +4,7 @@ import { createServer, Model } from "miragejs";
 createServer({
     models: {
         vans: Model,
+        users: Model
     },
 
     seeds(server) {
@@ -19,6 +20,7 @@ createServer({
         imageUrl: "https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png", type: "luxury", hostId: "789" })
         server.create("van", { id: "6", name: "Green Wonder", price: 70, description: "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.", 
         imageUrl: "https://assets.scrimba.com/advanced-react/react-router/green-wonder.png", type: "rugged", hostId: "123" })
+        server.create("user", { id: "123", email: "b@b.com", password: "p123", name: "Bob"})
     },
 
     routes() {
@@ -44,6 +46,19 @@ createServer({
         this.get("/host/vans/:id", (schema, request) => {
             const id = request.params.id
             return schema.vans.findBy({ id, hostId: "123" })
+        })
+
+        this.post("/login", (schema, request) => {
+            const { email, password } = JSON.parse(request.requestBody)
+            const foundUser = schema.users.findBy({ email, password })
+            if(!foundUser) {
+                return new Response(401, {}, { message: "No user with those credentials found!" })
+            }
+            foundUser.password = undefined
+            return {
+                user: foundUser,
+                token: "Enjoy your pizza, here's your token."
+            }
         })
     }
 })
@@ -74,4 +89,21 @@ export async function getHostVans(id) {
     }
     const data = await res.json()
     return data.vans
+}
+
+export async function loginUser(creds) {
+    const res = await fetch("/api/login",
+    { method: "post", body: JSON.stringify(creds)}
+    )
+    const data = await res.json()
+
+    if(!res.ok) {
+        throw {
+                message: data.message,
+                statusText: res.statusText,
+                status: res.status
+        }
+    }
+
+    return data
 }
