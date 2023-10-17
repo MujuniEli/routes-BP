@@ -1,9 +1,14 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Form } from "react-router-dom"
 import { useState } from "react"
 import { loginUser } from "../server"
 
 export function Loader( {request} ) {
     return new URL(request.url).searchParams.get("message")
+}
+
+export async function action() {
+    console.log("Action Function")
+    return null
 }
 
 const Login = () => {
@@ -32,7 +37,7 @@ const Login = () => {
                 <h1>Sign in to your account</h1>
                 {message && <h3 className="red">{message}</h3>}
                 {error && <h3 className="red">{error.message}</h3>}
-                <form onSubmit={handleSubmit} className="login-form">
+                <Form className="login-form" method="post">
                     <input
                         name="email" 
                         onChange={handleChange}
@@ -55,7 +60,7 @@ const Login = () => {
                         }
                         
                      </button> 
-                </form>
+                </Form>
             </div>
   )
 }
