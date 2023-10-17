@@ -1,21 +1,25 @@
-import { useLoaderData, Form } from "react-router-dom"
-import { useState } from "react"
+import { useLoaderData, Form, useNavigate } from "react-router-dom"
+import { useState} from "react"
 import { loginUser } from "../server"
 
 export function Loader( {request} ) {
     return new URL(request.url).searchParams.get("message")
 }
 
-export async function action() {
-    console.log("Action Function")
+export async function action({ request }) {
+    const formData = await request.formData()
+    const email = formData.get("email")
+    const password = formData.get("password")
+    const data = await loginUser({ email, password})
+    localStorage.setItem("loggedIn", true)
     return null
 }
 
 const Login = () => {
-        const [loginFormData, setLoginFormData] = useState({email: "", password: ""})
         const [status, setStatus] = useState("idle")
         const [error, setError] = useState(null)
         const message = useLoaderData()
+        const navigate = useNavigate()
 
         function handleSubmit(e) {
             e.preventDefault()
@@ -28,9 +32,7 @@ const Login = () => {
 
         }
 
-        function handleChange(e) {
-            setLoginFormData({...loginFormData, [e.target.name]: e.target.value})
-        }
+      
 
   return (
             <div className="login-container">
@@ -40,18 +42,14 @@ const Login = () => {
                 <Form className="login-form" method="post">
                     <input
                         name="email" 
-                        onChange={handleChange}
                         type="email"
                         placeholder="Email Address"
-                        value={loginFormData.email} 
                     />
 
                     <input
                         name="password" 
-                        onChange={handleChange}
                         type="password"
                         placeholder="Password"
-                        value={loginFormData.password}
                      />  
                      <button disabled = {status === "submitting"}>
                         {status === "submitting"
