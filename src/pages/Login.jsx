@@ -1,36 +1,28 @@
-import { useLoaderData, Form, useNavigate, redirect } from "react-router-dom"
-import { useState} from "react"
-import { loginUser } from "../server"
+import { useLoaderData, Form, useActionData, useNavigation } from "react-router-dom"
+
 
 export function Loader( {request} ) {
     return new URL(request.url).searchParams.get("message")
 }
 
-export async function action({ request }) {
-    const formData = await request.formData()
-    const email = formData.get("email")
-    const password = formData.get("password")
-    
-    try {
-        const data = await loginUser({ email, password})
-        localStorage.setItem("loggedIn", true)
-        return redirect("/host")
-    }
-    catch(error) 
-}
 
 const Login = () => {
-        const [status, setStatus] = useState("idle")
+        const errorMessage = useActionData()
         const message = useLoaderData()
-        const navigate = useNavigate()
+        const navigation = useNavigation()
       
 
   return (
             <div className="login-container">
                 <h1>Sign in to your account</h1>
                 {message && <h3 className="red">{message}</h3>}
-                {error && <h3 className="red">{error.message}</h3>}
-                <Form className="login-form" method="post" replace>
+                {errorMessage && <h3 className="red">{errorMessage}</h3>}
+
+                <Form 
+                    className="login-form" 
+                    method="post" 
+                    replace
+                >
                     <input
                         name="email" 
                         type="email"
@@ -42,8 +34,8 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                      />  
-                     <button disabled = {status === "submitting"}>
-                        {status === "submitting"
+                     <button disabled = {navigation.state === "submitting"}>
+                        {navigation.state === "submitting"
                             ? "Logging in..."
                             : "Log in"
                         }
