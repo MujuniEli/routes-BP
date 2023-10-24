@@ -17,6 +17,7 @@ export async function action({ request }) {
     try {
         const data = await loginUser({ email, password})
         localStorage.setItem("loggedIn", true)
+        console.log(data)
         return redirect("/host")
     }
     catch(err) {

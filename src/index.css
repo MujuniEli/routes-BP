@@ -61,6 +61,10 @@ a.active-link {
             font-weight: bold;
 }
 
+.login-icon {
+  height: 20px;
+}
+
 main {
   margin-bottom: 84px;
 }
