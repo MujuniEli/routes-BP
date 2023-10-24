@@ -1,5 +1,5 @@
-import { redirect } from "react-router-dom";   
-import { loginUser } from "../server" 
+import { redirect } from "react-router-dom";  
+import { loginUser } from "./server"; 
 
  export async function requireAuth() {
     const isLoggedIn = localStorage.getItem("loggedIn")
@@ -20,10 +20,13 @@ export async function action({ request }) {
         return redirect("/host")
     }
     catch(err) {
-        console.log(err.message)
         return err.message
     } 
+    
 }
+
+
+
 
 
 
