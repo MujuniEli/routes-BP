@@ -13,7 +13,7 @@ export async function Loader({ request }) {
 const HostVans = () => {
   const hostVans = useLoaderData()
 
-  const hostVanElements = hostVans.map((van) => (
+  const hostVanElements = hostVans.map(van => (
         <Link
             to={van.id}
             key={van.id}
