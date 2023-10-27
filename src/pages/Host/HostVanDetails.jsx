@@ -18,6 +18,8 @@ const HostVanDetails = () => {
     color: "#161616",
   }
 
+  console.log("THIS IS IMAGE URL:", currentVan)
+
   return (
           <section>
             <Link to=".." classname="link-button" relative="path">
@@ -25,7 +27,7 @@ const HostVanDetails = () => {
             </Link>
             <div className="host-van-detail-layout-container">
                 <div className="host-van-detail">
-                  <img src={currentVan.imageUrl} alt={currentVan.name} />
+                  {/* <img src={currentVan.imageUrl} alt={currentVan.name} /> */}
                     <div className="host-van-detail-info-text">
                           <i className={`van-type van-type-${currentVan.type}`}>{currentVan.type}</i>
                           <h3>{currentVan.name}</h3>

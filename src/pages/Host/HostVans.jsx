@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+// import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../server";
 import { requireAuth } from "../../utils";
@@ -12,6 +12,8 @@ export async function Loader({ request }) {
 
 const HostVans = () => {
   const hostVans = useLoaderData()
+  // const [hostVans, setHostVans] = useState([])
+
 
   const hostVanElements = hostVans.map(van => (
         <Link

@@ -78,7 +78,7 @@ export async function getVans(id) {
 }
 
 export async function getHostVans(id) {
-    const url = id ? `/api/host/vans/${id}` : "/api/host/vans"
+    const url = id ? `/api/vans/${id}` : "/api/vans"
     const res = await fetch(url)
     if (!res.ok) {
         throw {
