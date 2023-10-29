@@ -1,9 +1,10 @@
 
-import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData, defer} from "react-router-dom";
 import { getVans } from "../server"
 
 export const Loader = () => {
-    return getVans()
+    const vansPromise = getVans()
+    return defer({vansPromise})
 }
 
 

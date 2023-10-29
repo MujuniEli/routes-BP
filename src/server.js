@@ -26,6 +26,7 @@ createServer({
     routes() {
         this.namespace = "api"
         this.logging = false
+        this.timing = 1000
 
         // eslint-disable-next-line no-unused-vars
         this.get("/vans", (schema, request) => {
