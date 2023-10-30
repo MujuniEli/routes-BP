@@ -1,4 +1,4 @@
-
+import { Suspense } from "react";
 import { Link, useSearchParams, useLoaderData, defer, Await} from "react-router-dom";
 import { getVans } from "../server"
 
@@ -20,6 +20,7 @@ const Vans = () => {
   return (
                 <div className="van-list-container">
                     <h1>Explore our van options</h1>
+                    <Suspense fallback={<h2>Loading Vans...</h2>}>
                     <Await resolve={datapromise.vans}>
                         {vans => {
                                         const vansToDisplay = typeFilter 
@@ -58,6 +59,7 @@ const Vans = () => {
                         }}
                         
                     </Await>
+                    </Suspense>
                 </div>
   )
 }
