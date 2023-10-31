@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet, useLoaderData, defer, Await } from "react-router-dom";
 import { getHostVans } from "../../server";
 import { requireAuth } from "../../utils";
+import { Suspense } from "react";
 
 export async function Loader({ params, request }) {
   await requireAuth(request)
@@ -24,6 +25,7 @@ const HostVanDetails = () => {
               &larr; <span>Back to all Vans</span>
             </Link>
             <div className="host-van-detail-layout-container">
+              <Suspense fallback={<h2>Loading Van...</h2>}>
               <Await resolve={currentVanPromise.currentVan}>
                 {currentVan => {
                                     <div className="host-van-detail">
@@ -48,7 +50,7 @@ const HostVanDetails = () => {
                                     )
                 }}
               </Await>
-                
+              </Suspense>
               </div>
               
           </section>   
